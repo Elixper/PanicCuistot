@@ -1,0 +1,22 @@
+.demo{
+    background-color: burlywood;
+}
+
+body {
+    background-color: rgb(241, 200, 137);
+}
+.box{
+    color:coral;
+    height: 50px;
+    width: 50px;
+    border: 1px solid black;
+    /* display: block;
+    visibility: hidden;  */
+}
+#circle{
+    border-radius: 100%;
+    background-color: rgb(238, 240, 109);
+}
+#square{
+    background-color: rgba(163, 238, 222, 0.89);
+}
