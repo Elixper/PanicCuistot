@@ -1,8 +1,14 @@
 
+/* MAIN STYLING */
+
+/* /////// */
+/* MENU STYLING */
+
+/* ////// */
+/* BACKGROUND STYLING */
 .demo{
     background-color: burlywood;
 }
-
 body {
     background-image: url("/1-img/pxArtGame.png");
     background-repeat: no-repeat;
@@ -10,16 +16,22 @@ body {
     background-position: center;
     background-color: rgb(241, 200, 137);
 }
+/* ////// */
+/* ELEMENTS STYLING */
+.black{
+    color: black;
+    background-color: black;
+}
 .box{
-    color:coral;
     height: 50px;
     width: 50px;
+    padding: 5px;
     border: 1px solid black;
 }
 #circle{
     border-radius: 100%;
-    background-color: rgb(238, 240, 109);
 }
-#square{
-    background-color: rgba(163, 238, 222, 0.89);
+.icon {
+    height: 50px;
+    width: 50px;
 }

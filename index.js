@@ -16,6 +16,18 @@ document.getElementById("myBtn3").addEventListener("click", function() {
     document.getElementById("demo").style.display = "none";
   }
 });
+//1/2 Create a REVEAL button for the solutions
+document.getElementById("myBtn6").addEventListener("click", function() {
+  if (myBtn6.textContent=== "Hint?") {
+    myBtn6.textContent = "Back to Game?";
+    document.querySelectorAll('#sideLeftIcons > *').forEach(el => el.classList.remove('black'));
+  } else if(myBtn6.textContent=== "Back to Game?" ) {
+    myBtn6.textContent= "Hint?";
+    document.querySelectorAll('#sideLeftIcons > *').forEach(el => el.classList.add('black'));
+    }
+  });
+
+// 2/2 the REVEAL button will lead to no points and the next screen (shuffle button)
 
 
 //Create an on/OFF event for button audio
@@ -51,7 +63,9 @@ if (myBtn4.textContent === "Music On") {
 // { name: 'salt', img: 'salt.png' },
 // { name: 'cross', img: 'cross.png' },
 // { name: 'salt', img: 'salt.png' },
-// ]
+//]
+
+//in the loop think about substracting the food length each time
 // (function chooseShape(){
 // let pick= Math.floor(Math.random()*food.length);
 // })();
