@@ -6,55 +6,92 @@ document.audio = new Audio("./3-music/rockmusic.mp3");
 document.audio.loop = true;
 //ORIGINAL ARRAY OF ELEMENTS - We will reference the name and by image will mean the sourrce name.
 const food = [
-  { name: "cake", img: "iconcake.svg" },
-  { name: "hamburger", img: "iconhamburger.svg" },
-  { name: "meat", img: "iconmeat.svg" },
-  { name: "cupcake", img: "iconcupcake.png" },
-  { name: "fries", img: "iconfrench-fries.svg" },
-  { name: "grape", img: "icongrape.svg" },
-  { name: "chicken", img: "iconchicken-thigh.svg" },
-  { name: "salt", img: "salt.png" },
+  { name: "cake", img: "cake.png" },
+  { name: "pie", img: "iconpie.png" },
+  { name: "meat", img: "meat.png" },
+  { name: "fries", img: "fries.png" },
+  { name: "chicken", img: "chicken.png" },
+  { name: "carrot", img: "carrot.png" },
 ];
-// pickedArray is the array of random 6 image names chosen by clicking New Game and then new.. for the random 3
+// pickedArray is the array of random 6 objects image chosen by clicking New Game 
 let pickedArray = [];
-let newPickedArray=[];
-// pickedSrc the first 6 svg chosen 6 images svg chosen by clicking New Game
-let pickedSrc = [];
-let newPickedSrc=[];
-// solutionArray will correspond to p
+
+// solutionArray is the random array of 6 objects image
 let solutionArray = [];
 let gamerArray=[];
 
 //2 - ALL THE FUNCTIONS - the logic
-//
-//
-//Picks 6 svg in an ARRAY and 3 among those 6, TRIGGERED BY New GAME
-function chooseShape(array,n) {
-  for (let i = 0; i < n; i++) {
-    let pickedNumber = Math.floor(Math.random() * array.length);
-    // console.log(pickedNumber);
-    pickedArray.push(food[pickedNumber].name);
-    pickedSrc.push(food[pickedNumber].img);
-    if (i%2===0) solutionArray.push(food[pickedNumber].name);
-  }
-  // console.log(pickedSrc); 
-  return pickedSrc; 
-}
-chooseShape(food,6);
-console.log(`the picked 6 are ${pickedArray}`);
-console.log(`the solution 3 are ${solutionArray}`);
 
-//render buttons avec Picked Src
-// render buttons central avec Picked src from Picked Src
+//a Random function to get a random number
+function getRandomNumber(number){
+  return Math.floor(Math.random() * number);
+}
+//a chooseshape function to choose randomly N shapes in an ARRAY and store them in the DESTINATION ARRAY
+//TRIGGERED BY New GAME
+function chooseShape(array, destinationArray,n) {
+  for (let i = 0; i < n; i++) {
+    destinationArray.push(array[getRandomNumber(array.length)]);
+  }
+}
+chooseShape(food,pickedArray,6);
+
+// function chooseUniqueShape(array, destinationArray,n) {
+//   let arrayCopy=array;
+//   for (let i = 0; i < n; i++) {
+//     destinationArray.push(arrayCopy[getRandomNumber(arrayCopy.length)]);
+//     arrayCopy.pop(arrayCopy[getRandomNumber(arrayCopy.length)]);
+//     }
+// }
+// chooseUniqueShape(pickedArray,solutionArray,3);
+chooseShape(pickedArray,solutionArray,3);
+
+console.dir(`the picked 6 are ${JSON.stringify(pickedArray)}`);
+console.dir(`the solution 3 are ${JSON.stringify(solutionArray)}`);
 
 //add event listener for all buttons 
-// compare the picked solution with the solution 
-
+//compare the picked solution with the solution 
 
 // RENDER BUTTONS : takes the random svg and put it in place in the left or right.
-// function renderButtons(){
-// document.querySelectorAll('.icon').forEach(el => el.getAttribute('src')="src='/1-img/icones food/${food[pickedNumber].img}'");
+// console.log(document.getElementsByClassName('icon')[0].getAttribute("src"));
+// console.log(document.getElementsByClassName('icon')[1].getAttribute("src"));
+
+console.log(`src file in solutionArray",${JSON.stringify(solutionArray[0].img)}`);
+
+
+//RENDER SHAPE : will put the buttons with the corresponding images
+// buttonsArray, 
+function renderShape(buttonsArray,solutionArray){
+//RENDER the center Zone with the buttons for the solution
+for (let i=0;i<solutionArray.length;i++) {
+console.log(solutionArray[i].img);
+// console.log(`src=/1-img/SVGicones food/${solutionArray[i].img}`);
+document.getElementById('centerZone').innerHTML+=`<img class="center icon" src="/1-img/PNG/${solutionArray[i].img}""></img>`;
+}
+// RENDER THE SIDES Zone left and right for the answer options
+console.log("what'sthat")
+document.getElementById('leftZone').innerHTML+=`<img class="left icon" src="/1-img/PNG/${buttonsArray[0].img}""></img>`;
+document.getElementById('leftZone').innerHTML+=`<img class="left icon" src="/1-img/PNG/${buttonsArray[1].img}""></img>`;
+document.getElementById('leftZone').innerHTML+=`<img class="left icon" src="/1-img/PNG/${buttonsArray[2].img}""></img>`;
+
+document.getElementById('rightZone').innerHTML+=`<img class="right icon" src="/1-img/PNG/${buttonsArray[3].img}""></img>`;
+document.getElementById('rightZone').innerHTML+=`<img class="right icon" src="/1-img/PNG/${buttonsArray[4].img}""></img>`;
+document.getElementById('rightZone').innerHTML+=`<img class="right icon" src="/1-img/PNG/${buttonsArray[5].img}""></img>`;
+// for(let i=0;i<buttonsArray;i++){
+// if (i<3) {
+// document.getElementById('leftZone').innerHTML+=`<img class="left icon" src="/1-img/PNG/${buttonsArray[i].img}""></img>`;
+// } else {
+// document.getElementById('rightZone').innerHTML+=`<img class="right icon" src="/1-img/PNG/${buttonsArray[i].img}""></img>`;
 // }
+// }
+}
+renderShape(pickedArray,solutionArray);
+// // buttonsArray
+// // solutionArray
+// //solution=> solutionArray
+// //bouton = > pickedArray
+// renderButtons();
+
+
 //COMPARE STRINGS FUNCTION : I want to compare my solution string with the picked string by the player
 let svg1 = "zoo";
 let svg2 = "zoo";
