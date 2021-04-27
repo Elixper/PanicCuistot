@@ -31,7 +31,9 @@ body {
 #circle{
     border-radius: 100%;
 }
+/* BUTTON STYLING */
 .icon {
+    /* display: none; */
     height: 50px;
     width: 50px;
 }

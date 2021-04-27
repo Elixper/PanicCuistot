@@ -1,60 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module" src="/index.js"></script>
-    <link rel="stylesheet" href="./2-css/styles.css">
-    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="./2-css/styles.css" />
+    <link rel="shortcut icon" href="#" />
     <title>Document</title>
-</head>
-<body>
-<!-- Each screen is in a div If we want to see we will show it.
+  </head>
+  <body>
+    <!-- Each screen is in a div If we want to see we will show it.
 The buttons will help see/hide the section of the game. -->
 
-<!-- <div id="1Screen" class="hidden"></div> -->
-<div id="2Screen" class="visible"></div>
- <!-- NAV BAR present at all times ? -->
+    <!-- <div id="1Screen" class="hidden"></div> -->
+    <div id="2Screen" class="visible"></div>
+    <!-- NAV BAR present at all times ? -->
 
-    <button id="myBtn">touch</button>
-    <button id="myBtn2">clear</button>
-    <button id="myBtn3">Hide what is in demo div</button>
+    <button id="myBtn">New Game</button>
+    <!-- <button id="myBtn2">clear</button> -->
+    <!-- <button id="myBtn3">Hide what is in demo div</button> -->
 
     <audio src="./3-music/rockmusic.mp3" alt="rock music playing"></audio>
-    
-    <div id="demo">
 
-    <div id="circle" class="box"></div>
-    <div id="square" class="box"></div> 
+    <div id="demo">Later for the screen part to hide things</div>
 
-    </div>
-<!-- Create a div to welcome the six shuffled shapes -->
+    <!-- Create a div to welcome the six shuffled shapes -->
     <div id="sideLeftIcons">
-    <div id="circle" class="box black"></div>
-    <img class="icon" class="box" src="/1-img/icones food/iconfrench-fries.png">
-    <div id="square" class="box black"></div> 
-    <div id="circle" class="box black"></div>
-    <div id="line" class="box black"></div> 
+      <img
+        class="icon"
+        class="box"
+        src="/1-img/icones food/iconfrench-fries.png"
+        onclick="alert('hello')"
+      />
+      <button type="button">
+        <img src="./1-img/SVGicones food /iconcake.svg" />
+        </button>
+      <div id="circle" class="box black"></div>
+      <div id="circle" class="box"></div>
+      <div id="square" class="box"></div>
+      <div id="square" class="box black"></div>
+      <div id="circle" class="box black"></div>
+      <div id="line" class="box black"></div>
     </div>
     <div id="sideRightIcons"></div>
 
- <!-- 1/2 Create a REVEAL button for the solutions -->
- <button id="myBtn6">Hint?</button>
+    <!-- 1/2 Create a REVEAL button for the solutions -->
+    <button id="myBtn6">Hint?</button>
 
-<!-- created a shuffle button that mixes the shapes available -->
+    <!-- created a shuffle button that mixes the shapes available -->
     <button id="myBtn5">Shuffle</button>
-<!-- implement a click button that says well done when clicked on the three correct shapes -->
+    <!-- implement a click button that says well done when clicked on the three correct shapes -->
 
-<!-- step 2 create a shuffle that mixes the shapes among the object array of shapes and returns just 6 -->
+    <!-- step 2 create a shuffle that mixes the shapes among the object array of shapes and returns just 6 -->
 
-<!-- audio on /off --> 
-<button id="myBtn4">Music On</button>
-<!-- <div id="3Screen" class="hidden"></div>
+    <!-- audio on /off -->
+    <button id="myBtn4">Music On</button>
+    <!-- <div id="3Screen" class="hidden"></div>
 <div id="4Screen" class="hidden"></div> -->
-
-
-    
-
-</body>
+  </body>
 </html>
