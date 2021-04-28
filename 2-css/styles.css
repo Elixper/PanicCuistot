@@ -1,5 +1,5 @@
 /* MAIN STYLING */
-
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Yesteryear&display=swap');
 /* /////// */
 /* MENU STYLING */
 
@@ -14,6 +14,11 @@ body {
   background-attachment: fixed;
   background-position: center;
   background-color: rgb(241, 200, 137);
+  font-family: 'Yesteryear';
+}
+button {
+  font-family: 'Press Start 2P';
+  padding: 5px;
 }
 /* ////// */
 /* MAIN ZONES STYLING */
@@ -25,6 +30,11 @@ body {
 div {
   display: flex;
   flex-direction: column;
+}
+
+#friendZone{
+  display: block;
+  
 }
 /* ////// */
 /* ELEMENTS STYLING */
@@ -46,6 +56,12 @@ div {
   /* display: none; */
   height: 100px;
   width: 100px;
+}
+.center{
+  filter: brightness(0);
+}
+.centerHint{
+  filter: brightness(0.15) drop-shadow(0 0 5px whitesmoke);
 }
 /* .clicked { */
 /* text-decoration: none;
