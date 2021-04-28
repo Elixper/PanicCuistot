@@ -1,9 +1,5 @@
 //1 - TOOLS NEEDED
 
-//FOR THE NAV BAR
-//audio file
-document.audio = new Audio("./3-music/rockmusic.mp3");
-document.audio.loop = true;
 //ORIGINAL ARRAY OF ELEMENTS - We will reference the name and by image will mean the sourrce name.
 const food = [
   { name: "cake", img: "cake.png" },
@@ -13,108 +9,143 @@ const food = [
   { name: "chicken", img: "chicken.png" },
   { name: "carrot", img: "carrot.png" },
 ];
-// pickedArray is the array of random 6 objects image chosen by clicking New Game 
+// pickedArray is the array of random 6 objects image chosen by clicking New Game
 let pickedArray = [];
 
 // solutionArray is the random array of 6 objects image
 let solutionArray = [];
-let gamerArray=[];
+let gamerArray = [];
+
+//****FOR THE NAV BAR
+
+//Background Music
+document.audio = new Audio("./3-music/rockmusicsoundverylow.mp3");
+document.audio.loop = true;
+//Clic Sound Effect
+document.audio1 = new Audio("./3-music/CLICK.mp3");
 
 //2 - ALL THE FUNCTIONS - the logic
 
-//a Random function to get a random number
-function getRandomNumber(number){
+//****a RANDOM function to get a random NUMBER
+function getRandomNumber(number) {
   return Math.floor(Math.random() * number);
 }
-//a chooseshape function to choose randomly N shapes in an ARRAY and store them in the DESTINATION ARRAY
+//**** CHOOSESHAPE function to choose randomly N shapes in an ARRAY and store them in the DESTINATION ARRAY
 //TRIGGERED BY New GAME
-function chooseShape(array, destinationArray,n) {
+function chooseShape(array, destinationArray, n) {
   for (let i = 0; i < n; i++) {
     destinationArray.push(array[getRandomNumber(array.length)]);
   }
 }
-chooseShape(food,pickedArray,6);
-
-// function chooseUniqueShape(array, destinationArray,n) {
-//   let arrayCopy=array;
-//   for (let i = 0; i < n; i++) {
-//     destinationArray.push(arrayCopy[getRandomNumber(arrayCopy.length)]);
-//     arrayCopy.pop(arrayCopy[getRandomNumber(arrayCopy.length)]);
-//     }
-// }
-// chooseUniqueShape(pickedArray,solutionArray,3);
-chooseShape(pickedArray,solutionArray,3);
-
-console.dir(`the picked 6 are ${JSON.stringify(pickedArray)}`);
-console.dir(`the solution 3 are ${JSON.stringify(solutionArray)}`);
-
-//add event listener for all buttons 
-//compare the picked solution with the solution 
-
-// RENDER BUTTONS : takes the random svg and put it in place in the left or right.
-// console.log(document.getElementsByClassName('icon')[0].getAttribute("src"));
-// console.log(document.getElementsByClassName('icon')[1].getAttribute("src"));
-
-console.log(`src file in solutionArray",${JSON.stringify(solutionArray[0].img)}`);
-
-
-//RENDER SHAPE : will put the buttons with the corresponding images
-// buttonsArray, 
-function renderShape(buttonsArray,solutionArray){
-//RENDER the center Zone with the buttons for the solution
-for (let i=0;i<solutionArray.length;i++) {
-console.log(solutionArray[i].img);
-// console.log(`src=/1-img/SVGicones food/${solutionArray[i].img}`);
-document.getElementById('centerZone').innerHTML+=`<img class="center icon" src="/1-img/PNG/${solutionArray[i].img}""></img>`;
+//****RENDER SHAPE : will put the buttons with the corresponding images
+function renderShape(buttonsArray, solutionArray) {
+  // RENDER the center Zone with the buttons for the solution
+  for (let i = 0; i < solutionArray.length; i++) {
+    // console.log(solutionArray[i].img);
+    document.getElementById(
+      "centerZone"
+    ).innerHTML += `<img id="${solutionArray[i].name}" class="center icon" src="/1-img/PNG/${solutionArray[i].img}"></img>`;
+  }
+  // RENDER THE SIDES Zone left and right for the answer options
+  for (let i = 0; i < buttonsArray.length; i++) {
+    if (i < 3) {
+      document.getElementById(
+        "leftZone"
+      ).innerHTML += `<img id="${buttonsArray[i].name}" class="left side icon" src="/1-img/PNG/${buttonsArray[i].img}" alt="${buttonsArray[i].name}"></img>`;
+    } else {
+      document.getElementById(
+        "rightZone"
+      ).innerHTML += `<img id="${buttonsArray[i].name}" class="right side icon" src="/1-img/PNG/${buttonsArray[i].img}" alt="${buttonsArray[i].name}"></img>`;
+    }
+  }
+  document.querySelectorAll(".side").forEach((icon) =>
+    icon.addEventListener("click", function () {
+      document.getElementById("demo").innerHTML += "Hello World";
+      //under 3 clicks we want the gamerArray to fill with the alt names of the clicked icons
+      if (gamerArray.length === 2) {
+        gamerArray.push(`${icon.getAttribute("alt")}`);
+        console.log(`show me the last${gamerArray.length}`, gamerArray);
+        //each time an icon is clicked the clicked class is added to the icon button- this class is removed in the checkanswer function
+        icon.classList.add("clicked");
+        checkAnswer(gamerArray, solutionArray);
+      } else if (gamerArray.length < 3) {
+        gamerArray.push(`${icon.getAttribute("alt")}`);
+        console.log(
+          `show me gamerArray at trial number${gamerArray.length}`,
+          gamerArray
+        );
+        //each time an icon is clicked the clicked class is added to the icon button- this class is removed in the checkanswer function
+        icon.classList.add("clicked");
+        let a = gamerArray.sort().join("");
+      } else {
+      }
+      //when the gamerArray.length is 3 we check that the ids of the button pushed are the same
+      document.audio1.play();
+    })
+  );
+  console.log("random 6 pick", buttonsArray);
+  console.log("solution Array", solutionArray);
 }
-// RENDER THE SIDES Zone left and right for the answer options
-console.log("what'sthat")
-document.getElementById('leftZone').innerHTML+=`<img class="left icon" src="/1-img/PNG/${buttonsArray[0].img}""></img>`;
-document.getElementById('leftZone').innerHTML+=`<img class="left icon" src="/1-img/PNG/${buttonsArray[1].img}""></img>`;
-document.getElementById('leftZone').innerHTML+=`<img class="left icon" src="/1-img/PNG/${buttonsArray[2].img}""></img>`;
+// renderShape(pickedArray, solutionArray);
 
-document.getElementById('rightZone').innerHTML+=`<img class="right icon" src="/1-img/PNG/${buttonsArray[3].img}""></img>`;
-document.getElementById('rightZone').innerHTML+=`<img class="right icon" src="/1-img/PNG/${buttonsArray[4].img}""></img>`;
-document.getElementById('rightZone').innerHTML+=`<img class="right icon" src="/1-img/PNG/${buttonsArray[5].img}""></img>`;
-// for(let i=0;i<buttonsArray;i++){
-// if (i<3) {
-// document.getElementById('leftZone').innerHTML+=`<img class="left icon" src="/1-img/PNG/${buttonsArray[i].img}""></img>`;
-// } else {
-// document.getElementById('rightZone').innerHTML+=`<img class="right icon" src="/1-img/PNG/${buttonsArray[i].img}""></img>`;
-// }
-// }
+//****CLEAR THE ZONES FUNCTION clears the zones with the buttons
+function clearTheZones() {
+  document.querySelectorAll(".zone").forEach((zone) => (zone.innerHTML = ""));
+  pickedArray = [];
+  solutionArray = [];
+  gamerArray = [];
 }
-renderShape(pickedArray,solutionArray);
-// // buttonsArray
-// // solutionArray
-// //solution=> solutionArray
-// //bouton = > pickedArray
-// renderButtons();
-
-
-//COMPARE STRINGS FUNCTION : I want to compare my solution string with the picked string by the player
-let svg1 = "zoo";
-let svg2 = "zoo";
-function checkAnswer(a, b) {
-
-  if (a.localeCompare(b) === 0 && solutionArray.length === 3) {
+//****RESET THE SHAPES FUNCTION prepares all the elements for a new game (pickedArray, solutionArray)
+function resetShapes() {
+  chooseShape(food, pickedArray, 6);
+  chooseShape(pickedArray, solutionArray, 3);
+  renderShape(pickedArray, solutionArray);
+}
+//FUNCTION GAMERCLICKS pushes the clicked attribute into the gamer array.
+// function gamerClicks() {
+//   // {
+//   document.getElementById("demo").innerHTML += "Hello World";
+//   //under 3 clicks we want the gamerArray to fill with the alt names of the clicked icons
+//   if (gamerArray.length === 2) {
+//     gamerArray.push(`${icon.getAttribute("alt")}`);
+//     console.log(`show me the last${gamerArray.length}`, gamerArray);
+//   } else if (gamerArray.length < 3) {
+//     gamerArray.push(`${icon.getAttribute("alt")}`);
+//     console.log(
+//       `show me gamerArray at trial number${gamerArray.length}`,
+//       gamerArray
+//     );
+//     //each time an icon is clicked the clicked class is added to the icon button- this class is removed in the checkanswer function
+//     icon.classList.add("clicked");
+//   } else {
+//   }
+//   //when the gamerArray.length is 3 we check that the ids of the button pushed are the same
+//   document.audio1.play();
+//   // }
+// }
+function checkAnswer(gamerArray, solutionArray) {
+  let a = gamerArray.sort().join("");
+  let b = solutionArray.sort().join("");
+  if (a.localeCompare(b) === "0" && solutionArray.length === 3) {
+    alert("Well Done You!");
+    clearTheZones();
+    resetShapes();
   } else {
+    alert("Try Again!");
+    gamerArray = [];
+    //unclick the 3 buttons (classList.remove('clicked'))
+    getqueryselectorAll(".clicked").forEach((el) =>
+      el.classList.remove("clicked")
+    );
   }
 }
-checkAnswer(svg1, svg2);
+
 //3 - EVENTS
-//NEW GAME BUTTON
-document.getElementById("myBtn").addEventListener("click", function () {
-  //On cache les éléments précédents intro ou partie précédente
 
-  // on choisit au hasard 6 formes : fonction chooseShape
-  if (myBtn4.textContent === "Music On") {
-    myBtn4.textContent = "Music Off";
-    document.audio.play();
-  } else {
-    myBtn4.textContent = "Music On";
-    document.audio.pause();
-  }
+//NEW GAME BUTTON : clears the previous arrays and zones THEN Chooses the picked Array the solution Array renders the shape
+document.getElementById("myBtn").addEventListener("click", function () {
+  clearTheZones();
+  resetShapes();
 });
 
 // //HIDE BUTTON
@@ -125,7 +156,8 @@ document.getElementById("myBtn").addEventListener("click", function () {
 //     document.getElementById("demo").style.display = "none";
 //   }
 // });
-//1/2 Create a HINT button for the solutions
+
+// HINT button for the solutions : White border for image
 document.getElementById("myBtn6").addEventListener("click", function () {
   if (myBtn6.textContent === "Hint?") {
     myBtn6.textContent = "Back to Game?";
@@ -160,9 +192,17 @@ document.getElementById("myBtn4").addEventListener("click", function () {
 //   document.getElementById('circle').classList.toggle("display");
 //   document.getElementById('circle').classList.toggle("visibility");
 
-//     });
+// function chooseUniqueShape(array, destinationArray,n) {
+//   let arrayCopy=[...array];
+//   for (let i = 0; i < n; i++) {
+//     destinationArray.push(arrayCopy[getRandomNumber(arrayCopy.length)]);
+//     arrayCopy.pop(arrayCopy[getRandomNumber(arrayCopy.length)]);
+//     }
+// }
 
-//pick a random element
+// console.log(
+//   `src file in solutionArray",${JSON.stringify(solutionArray[0].img)}`
+// );
 
-// getElementById("demo").innerHTML=`${"test"}`;
-// `${<img src="./1-img/cross.png"></img>}`
+// console.dir(`the picked 6 are ${JSON.stringify(pickedArray)}`);
+// console.dir(`the solution 3 are ${JSON.stringify(solutionArray)}`);
