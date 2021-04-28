@@ -61,7 +61,6 @@ function renderShape(buttonsArray, solutionArray) {
   }
   document.querySelectorAll(".side").forEach((icon) =>
     icon.addEventListener("click", function () {
-      document.getElementById("demo").innerHTML += "Hello World";
       gamerArray.push(`${icon.getAttribute("alt")}`);
       icon.classList.add("clicked");
       document.audio1.play();
@@ -81,7 +80,7 @@ function clearTheZones() {
   document.querySelectorAll(".zone").forEach((zone) => (zone.innerHTML = ""));
   pickedArray = [];
   solutionArray = [];
-  nameSolutionArray
+  nameSolutionArray=[];
   gamerArray = [];
 }
 //****RESET THE SHAPES FUNCTION prepares all the elements for a new game (pickedArray, solutionArray)
@@ -93,7 +92,7 @@ function resetShapes() {
   solutionArray.forEach(el => {
     nameSolutionArray.push(el.name)
   })
-  console.log(nameSolutionArray)
+  console.log("namesolutionarray",nameSolutionArray)
 }
 //FUNCTION GAMERCLICKS pushes the clicked attribute into the gamer array.
 // function gamerClicks() {
@@ -169,8 +168,6 @@ document.getElementById("myBtn4").addEventListener("click", function () {
     document.audio.pause();
   }
 });
-
-
 
 //TO HIDE things :
 // //HIDE BUTTON
