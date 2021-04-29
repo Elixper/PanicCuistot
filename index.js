@@ -148,11 +148,11 @@ document.getElementById("myBtn4").addEventListener("click", function () {
 
 //TO HIDE things :
 // //HIDE BUTTON
-// document.getElementById("myBtn3").addEventListener("click", function () {
-//   if (document.getElementById("demo").style.display === "none") {
-//     document.getElementById("demo").style.display = "inherit";
+// document.getElementById("myBtn8").addEventListener("click", function () {
+//   if (document.getElementById("myBtn6").style.display === "none") {
+//     document.getElementById("myBtn6").style.display = "inherit";
 //   } else {
-//     document.getElementById("demo").style.display = "none";
+//     document.getElementById("myBtn6").style.display = "none";
 //   }
 // });
 
