@@ -1,7 +1,5 @@
 const backToGameBtn = document.getElementById("myBtn9");
-
-function goBackGame() {
+function goToHome() {
   document.location.href = "/home.html";
 }
-
-backToGameBtn.addEventListener("click", goToAbout);
+backToGameBtn.addEventListener("click", goToHome);

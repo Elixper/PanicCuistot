@@ -86,6 +86,7 @@ function clearTheZones() {
   solutionArray = [];
   nameSolutionArray = [];
   gamerArray = [];
+  document.querySelector(".wrapper").classList.add("is-active");
 }
 //****RESET THE SHAPES FUNCTION prepares all the elements for a new game (pickedArray, solutionArray)
 function resetShapes() {
@@ -153,9 +154,14 @@ document.getElementById("myBtn4").addEventListener("click", function () {
 });
 //Create an ABOUT button that will send to a descriptive page about the project
 const aboutBtn = document.getElementById("myBtn8");
-
 function goToAbout() {
   document.location.href = "/about.html";
 }
-
 aboutBtn.addEventListener("click", goToAbout);
+
+//Create an HOME button that will send back to the Home page
+const refreshPage = document.getElementById("myBtn10");
+function goToHome() {
+  document.location.href = "/home.html";
+}
+refreshPage.addEventListener("click", goToHome);
