@@ -8,6 +8,24 @@ const food = [
   { name: "fries", img: "fries.png" },
   { name: "chicken", img: "chicken.png" },
   { name: "carrot", img: "carrot.png" },
+  { name: "apple", img: "apple.png" },
+  { name: "bananas", img: "bananas.png" },
+  { name: "blueberry", img: "blueberry.png" },
+  { name: "bread", img: "bread.png" },
+  { name: "cheese", img: "cheese.png" },
+  { name: "chinesefood", img: "chinesefood.png" },
+  { name: "eggs", img: "eggs.png" },
+  { name: "hotdog", img: "hotdog.png" },
+  { name: "latte", img: "latte.png" },
+  { name: "lemon", img: "lemon.png" },
+  { name: "lettuce", img: "lettuce.png" },
+  { name: "nachos", img: "nachos.png" },
+  { name: "orange", img: "orange.png" },
+  { name: "rice", img: "rice.png" },
+  { name: "strawberry", img: "strawberry.png" },
+  { name: "strawcake", img: "strawcake.png" },
+  { name: "tacos", img: "tacos.png" },
+  { name: "watermelon", img: "watermelon.png" },
 ];
 // pickedArray is the array of random 6 objects image chosen by clicking New Game
 let pickedArray = [];
@@ -49,18 +67,18 @@ function renderShape(buttonsArray, solutionArray) {
     // console.log(solutionArray[i].img);
     document.getElementById(
       "centerZone"
-    ).innerHTML += `<img id="${solutionArray[i].name}" class="center icon" src="/1-img/PNG/${solutionArray[i].img}"></img>`;
+    ).innerHTML += `<img id="${solutionArray[i].name}" class="center icon rotate" src="/1-img/PNG/${solutionArray[i].img}"></img>`;
   }
   // RENDER THE SIDES Zone left and right for the answer options
   for (let i = 0; i < buttonsArray.length; i++) {
     if (i < 3) {
       document.getElementById(
         "leftZone"
-      ).innerHTML += `<img id="${buttonsArray[i].name}" class="left side icon" src="/1-img/PNG/${buttonsArray[i].img}" alt="${buttonsArray[i].name}"></img>`;
+      ).innerHTML += `<img id="${buttonsArray[i].name}" class="left side icon slidein" src="/1-img/PNG/${buttonsArray[i].img}" alt="${buttonsArray[i].name}"></img>`;
     } else {
       document.getElementById(
         "rightZone"
-      ).innerHTML += `<img id="${buttonsArray[i].name}" class="right side icon" src="/1-img/PNG/${buttonsArray[i].img}" alt="${buttonsArray[i].name}"></img>`;
+      ).innerHTML += `<img id="${buttonsArray[i].name}" class="right side icon slidein" src="/1-img/PNG/${buttonsArray[i].img}" alt="${buttonsArray[i].name}"></img>`;
     }
   }
   document.querySelectorAll(".side").forEach((icon) =>
@@ -133,12 +151,12 @@ document.getElementById("myBtn6").addEventListener("click", function () {
     myBtn6.textContent = "Hide Hint";
     document
       .querySelectorAll(".center")
-      .forEach((el) => (el.className = "centerHint icon"));
+      .forEach((el) => (el.className = "centerHint icon rotate"));
   } else if (myBtn6.textContent === "Hide Hint") {
     myBtn6.textContent = "Hint?";
     document
       .querySelectorAll(".centerHint")
-      .forEach((el) => (el.className = "center icon"));
+      .forEach((el) => (el.className = "center icon rotate"));
   }
 });
 
