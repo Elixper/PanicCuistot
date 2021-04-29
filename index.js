@@ -1,7 +1,7 @@
-const playBtn= document.getElementById("playBtn");
+const playBtn = document.getElementById("playBtn");
 
-function goToHome () {
-    document.location.href="/home.html"
+function goToHome() {
+  document.location.href = "/home.html";
 }
 
-playBtn.addEventListener('click', goToHome)
+playBtn.addEventListener("click", goToHome);

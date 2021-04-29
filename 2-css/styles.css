@@ -174,13 +174,24 @@ div {
   height: 100px;
   width: 100px;
 }
+.right.icon:hover{
+  transform: rotate(45deg);
+  transition-duration:1s;
+}
+.left.icon:hover{
+  transform: rotate(-45deg);
+  transition-duration:1s;
+}
 .center {
   filter: brightness(0);
 }
 .centerHint {
   filter: brightness(0.15) drop-shadow(0 0 5px yellow);
 }
-
+.clicked {
+  filter: drop-shadow(0 0 5px rgba(255, 186, 83, 0.986));
+  animation: jump .5s linear alternate infinite;
+}
 /* .clicked { */
 /* text-decoration: none;
     border: none;

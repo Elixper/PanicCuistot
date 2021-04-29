@@ -151,22 +151,11 @@ document.getElementById("myBtn4").addEventListener("click", function () {
     audio0.pause();
   }
 });
+//Create an ABOUT button that will send to a descriptive page about the project
+const aboutBtn = document.getElementById("myBtn8");
 
-//TO HIDE things :
-//HIDE BUTTON
-document.getElementById("myBtn8").addEventListener("click", function () {
-  if (document.getElementById("myBtn6").style.display === "none") {
-    document.getElementById("myBtn6").style.display = "inherit";
-  } else {
-    document.getElementById("myBtn6").style.display = "none";
-  }
-});
+function goToAbout() {
+  document.location.href = "/about.html";
+}
 
-//IF TIME CHOOSEUNIQUESHAPE
-// function chooseUniqueShape(array, destinationArray,n) {
-//   let arrayCopy=[...array];
-//   for (let i = 0; i < n; i++) {
-//     destinationArray.push(arrayCopy[getRandomNumber(arrayCopy.length)]);
-//     arrayCopy.pop(arrayCopy[getRandomNumber(arrayCopy.length)]);
-//     }
-// }
+aboutBtn.addEventListener("click", goToAbout);
