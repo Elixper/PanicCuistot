@@ -10,42 +10,55 @@
     <title>Document</title>
   </head>
   <body>
-    <!-- Each screen is in a div If we want to see we will show it.
-The buttons will help see/hide the section of the game. -->
-
-    <!-- <div id="1Screen" class="hidden"></div> -->
-    <!-- <div id="2Screen" class="visible"></div> -->
-    <!-- NAV BAR present at all times ? -->
-
-    <!-- <button id="myBtn2">clear</button> -->
-    <!-- <button id="myBtn3">Hide what is in demo div</button> -->
-
-    <audio src="./3-music/rockmusic.mp3" alt="rock music playing"></audio>
-
-    <div id="demo" class="cat">Later for the screen part to hide things</div>
-    <h1>Click on the 3 shapes matching the Menu Order!</h1>
-    <!-- Create a div to welcome the six shuffled shapes -->
-    <div class="wrapper">
-      <div id="leftZone" class="zone"></div>
-      <div id="centerZone" class="zone"></div>
-      <div id="rightZone" class="zone"></div>
+    <!-- Each div is a screen -->
+    <div id="1Screen" class="navbar">
+      <nav>
+        <ul>
+          <li><button id="myBtn4" class="shine">Menu</button></li>
+          <li><button id="myBtn4" class="shine">Music On</button></li>
+        </ul>
+      </nav>
     </div>
-<div id="friendZone">
-  <button id="myBtn">New Game</button>
-  <!-- 1/2 Create a REVEAL button for the solutions -->
-  <button id="myBtn6">Hint?</button>
 
-  <!-- created a shuffle button that mixes the shapes available -->
-  <button id="myBtn5">Shuffle</button>
-  <!-- implement a click button that says well done when clicked on the three correct shapes -->
+    <div id="2Screen" class="visible">
+      <!-- NAV BAR present at all times ? -->
 
-  <!-- step 2 create a shuffle that mixes the shapes among the object array of shapes and returns just 6 -->
+      <!-- <button id="myBtn2">clear</button> -->
+      <!-- <button id="myBtn3">Hide what is in demo div</button> -->
 
-  <!-- audio on /off -->
-  <button id="myBtn4">Music On</button>
-</div>
-  <!-- <div id="3Screen" class="hidden"></div>
+      <audio src="./3-music/rockmusic.mp3" alt="rock music playing"></audio>
+
+      <div id="demo">
+        <h1 class="instruction">
+          Click on the 3 shapes matching the Menu Order!
+        </h1>
+        <!-- Create a div to welcome the six shuffled shapes -->
+        <div class="wrapper">
+          <div id="leftZone" class="zone"></div>
+          <div id="centerZone" class="zone"></div>
+          <div id="rightZone" class="zone"></div>
+        </div>
+      </div>
+      <div id="friendZone">
+        <!-- <button id="myBtn" class="shine main">New Game</button>
+        <!-1/2 Create a REVEAL button for the solutions -->
+        <!-- <button id="myBtn6" class="shine">Hint?</button> -->
+        -->
+        <ul>
+          <li><button id="myBtn" class="shine main">New Game</button></li>
+          <li><button id="myBtn6" class="shine">Hint?</button></li>
+        </ul>
+        <!-- created a shuffle button that mixes the shapes available -->
+        <!-- <button id="myBtn5">Shuffle</button> -->
+        <!-- implement a click button that says well done when clicked on the three correct shapes -->
+
+        <!-- step 2 create a shuffle that mixes the shapes among the object array of shapes and returns just 6 -->
+
+        <!-- audio on /off -->
+      </div>
+      <!-- <img class="perso" src="/1-img/art/cuistot2png.png" alt="cuistot"> -->
+      <!-- <div id="3Screen" class="hidden"></div>
 <div id="4Screen" class="hidden"></div> -->
-    
+    </div>
   </body>
 </html>

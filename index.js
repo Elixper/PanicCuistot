@@ -23,7 +23,7 @@ let gamerArray = [];
 document.audio = new Audio("./3-music/rockmusicsoundverylow.mp3");
 document.audio.loop = true;
 //Clic Sound Effect
-document.audio1 = new Audio("./3-music/CLICK.mp3");
+document.audio1 = new Audio("./3-music/CLICKloud.mp3");
 
 //2 - ALL THE FUNCTIONS - the logic
 
@@ -66,7 +66,7 @@ function renderShape(buttonsArray, solutionArray) {
       document.audio1.play();
 
       if (gamerArray.length === 3) {
-        checkAnswer()
+        checkAnswer();
       }
     })
   );
@@ -80,7 +80,7 @@ function clearTheZones() {
   document.querySelectorAll(".zone").forEach((zone) => (zone.innerHTML = ""));
   pickedArray = [];
   solutionArray = [];
-  nameSolutionArray=[];
+  nameSolutionArray = [];
   gamerArray = [];
 }
 //****RESET THE SHAPES FUNCTION prepares all the elements for a new game (pickedArray, solutionArray)
@@ -88,38 +88,16 @@ function resetShapes() {
   chooseShape(food, pickedArray, 6);
   chooseShape(pickedArray, solutionArray, 3);
   renderShape(pickedArray, solutionArray);
-  
-  solutionArray.forEach(el => {
-    nameSolutionArray.push(el.name)
-  })
-  console.log("namesolutionarray",nameSolutionArray)
+
+  solutionArray.forEach((el) => {
+    nameSolutionArray.push(el.name);
+  });
+  console.log("namesolutionarray", nameSolutionArray);
 }
-//FUNCTION GAMERCLICKS pushes the clicked attribute into the gamer array.
-// function gamerClicks() {
-//   // {
-//   document.getElementById("demo").innerHTML += "Hello World";
-//   //under 3 clicks we want the gamerArray to fill with the alt names of the clicked icons
-//   if (gamerArray.length === 2) {
-//     gamerArray.push(`${icon.getAttribute("alt")}`);
-//     console.log(`show me the last${gamerArray.length}`, gamerArray);
-//   } else if (gamerArray.length < 3) {
-//     gamerArray.push(`${icon.getAttribute("alt")}`);
-//     console.log(
-//       `show me gamerArray at trial number${gamerArray.length}`,
-//       gamerArray
-//     );
-//     //each time an icon is clicked the clicked class is added to the icon button- this class is removed in the checkanswer function
-//     icon.classList.add("clicked");
-//   } else {
-//   }
-//   //when the gamerArray.length is 3 we check that the ids of the button pushed are the same
-//   document.audio1.play();
-//   // }
-// }
 function checkAnswer() {
   let a = gamerArray.sort().join("");
   let b = nameSolutionArray.sort().join("");
-  console.log(a, b)
+  console.log(a, b);
   if (a === b) {
     alert("Well Done You!");
     clearTheZones();
@@ -128,9 +106,9 @@ function checkAnswer() {
     alert("Try Again!");
     gamerArray = [];
     //unclick the 3 buttons (classList.remove('clicked'))
-    document.querySelectorAll(".clicked").forEach((el) =>
-      el.classList.remove("clicked")
-    );
+    document
+      .querySelectorAll(".clicked")
+      .forEach((el) => el.classList.remove("clicked"));
   }
 }
 
@@ -143,19 +121,18 @@ document.getElementById("myBtn").addEventListener("click", function () {
 });
 
 // HINT button for the solutions : White border for image
-document.getElementById("myBtn6").addEventListener("click", function (){
-if (myBtn6.textContent === "Hint?") 
-{
-    myBtn6.textContent = "Back to Game?";
+document.getElementById("myBtn6").addEventListener("click", function () {
+  if (myBtn6.textContent === "Hint?") {
+    myBtn6.textContent = "Hide Hint";
     document
       .querySelectorAll(".center")
-      .forEach((el) => el.className="centerHint icon");
-} else if (myBtn6.textContent === "Back to Game?") {
+      .forEach((el) => (el.className = "centerHint icon"));
+  } else if (myBtn6.textContent === "Hide Hint") {
     myBtn6.textContent = "Hint?";
     document
       .querySelectorAll(".centerHint")
-      .forEach((el) => el.className="center icon");
-}
+      .forEach((el) => (el.className = "center icon"));
+  }
 });
 
 //Create an on/OFF event for button audio
@@ -178,7 +155,7 @@ document.getElementById("myBtn4").addEventListener("click", function () {
 //     document.getElementById("demo").style.display = "none";
 //   }
 // });
- 
+
 // document.getElementById("myBtn2").addEventListener("click", function() {
 // document.getElementById("demo").innerHTML = " ";
 // });
@@ -195,11 +172,3 @@ document.getElementById("myBtn4").addEventListener("click", function () {
 //     arrayCopy.pop(arrayCopy[getRandomNumber(arrayCopy.length)]);
 //     }
 // }
-
-// CONSOLE DIR CHEATSHEET
-// console.log(
-//   `src file in solutionArray",${JSON.stringify(solutionArray[0].img)}`
-// );
-
-// console.dir(`the picked 6 are ${JSON.stringify(pickedArray)}`);
-// console.dir(`the solution 3 are ${JSON.stringify(solutionArray)}`);

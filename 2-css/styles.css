@@ -1,40 +1,155 @@
 /* MAIN STYLING */
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Yesteryear&display=swap');
-/* /////// */
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Yesteryear&display=swap");
+* {
+  border: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+} /* /////// */
 /* MENU STYLING */
-
+.navbar ul {
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 30px;
+}
+.navbar ul li {
+  padding-right: 10px;
+}
+h1 {
+  font-size: 60px;
+  padding-bottom: 15px;
+  color: rgb(153, 83, 71);
+  background-color: rgba(222, 184, 135, 0.377);
+}
 /* ////// */
 /* BACKGROUND STYLING */
-.demo {
-  background-color: burlywood;
-}
+
+/* #demo {
+  /* background-image: url(/1-img/art/fondtransparentNEW.png); */
+/* } */
 body {
   background-image: url("/1-img/pxArtGame.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
   background-color: rgb(241, 200, 137);
-  font-family: 'Yesteryear';
+  font-family: "Yesteryear";
 }
 button {
-  font-family: 'Press Start 2P';
+  font-family: "Press Start 2P";
+  width: 150px;
+  height: 50px;
   padding: 5px;
+  border-radius: 25%;
+  /* background: rgb(255,192,53);
+background: linear-gradient(43deg, rgba(255,192,53,1) 0%, rgba(247,213,29,1) 13%, rgba(255,255,255,1) 17%, rgba(247,213,29,1) 23%, rgba(255,255,255,1) 75%, rgba(247,164,29,1) 86%); */
+
+  /* background: rgb(255,192,53);
+background: linear-gradient(43deg, rgba(255,192,53,1) 0%, rgba(247,213,29,1) 13%, rgba(255,255,255,1) 17%, rgba(247,213,29,1) 23%, rgba(255,255,255,1) 75%, rgba(247,164,29,1) 95%);   
+ */
+  background: rgb(255, 192, 53);
+  background: linear-gradient(
+    43deg,
+    rgba(255, 192, 53, 1) 0%,
+    rgba(247, 213, 29, 1) 13%,
+    rgba(255, 255, 255, 1) 17%,
+    rgba(247, 213, 29, 1) 23%,
+    rgba(255, 255, 255, 1) 75%,
+    rgba(247, 213, 29, 1) 89%,
+    rgba(247, 164, 29, 1) 95%
+  );
+  /* background: rgb(255,192,53); */
+  /* background: linear-gradient(43deg, rgba(255,192,53,1) 0%, rgba(247,213,29,1) 13%, rgba(255,255,255,1) 17%, rgba(247,213,29,1) 23%, rgba(247,164,29,1) 86%); */
+  /* background: linear-gradient(43deg, rgba(255,192,53,1) 0%, rgba(247,213,29,1) 7%, rgba(255,255,255,1) 17%, rgba(247,213,29,1) 38%, rgba(247,164,29,1) 86%); */
+}
+
+.instruction {
+  text-align: center;
+  padding-top: 20px;
+}
+@keyframes shine {
+  0% {
+    transform: translateX(-30px) rotate(-25deg);
+  }
+
+  100% {
+    transform: translateX(250px) rotate(-25deg);
+  }
+}
+
+.shine {
+  margin: 1rem;
+  background: rgb(255, 192, 53);
+  background: linear-gradient(
+    43deg,
+    rgba(255, 192, 53, 1) 0%,
+    rgba(247, 213, 29, 1) 13%,
+    rgba(255, 255, 255, 1) 17%,
+    rgba(247, 213, 29, 1) 23%,
+    rgba(255, 255, 255, 1) 75%,
+    rgba(247, 213, 29, 1) 82%,
+    rgba(247, 164, 29, 1) 95%
+  );
+  color: black;
+  padding: 0.75rem 1.25rem;
+  width: 175px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  transition: all 100ms linear;
+}
+
+.shine:hover {
+  transform: scale(1.05);
+}
+
+.shine:hover::after {
+  content: "";
+  display: block;
+  width: 75px;
+  height: 175%;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 1) 25%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, 1) 75%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  opacity: 0.5;
+  position: absolute;
+  top: -20px;
+  left: 0;
+  animation: shine 200ms linear;
+  transform: translateX(250px) rotate(-25deg);
 }
 /* ////// */
 /* MAIN ZONES STYLING */
 .wrapper {
+  padding-left: 240px;
+  padding-bottom: 20px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: minmax(100px, auto);
+  background-color: rgba(222, 184, 135, 0.377);
 }
 div {
   display: flex;
   flex-direction: column;
 }
 
-#friendZone{
+#friendZone {
   display: block;
-  
+  text-align: center;
+}  
+#friendZone ul{
+  text-decoration: none;
+  list-style: none;
 }
 /* ////// */
 /* ELEMENTS STYLING */
@@ -57,12 +172,13 @@ div {
   height: 100px;
   width: 100px;
 }
-.center{
+.center {
   filter: brightness(0);
 }
-.centerHint{
+.centerHint {
   filter: brightness(0.15) drop-shadow(0 0 5px whitesmoke);
 }
+
 /* .clicked { */
 /* text-decoration: none;
     border: none;
@@ -83,3 +199,19 @@ div {
 /* box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24); */
 /* Lowering the shadow */
 /* } */
+/* .pixelart-to-css {
+  position: absolute;
+  animation: x 1s infinite;
+  -webkit-animation: x 1s infinite;
+  -moz-animation: x 1s infinite;
+  -o-animation: x 1s infinite;
+} */
+
+/* .perso{
+  width: 12%vh;
+  height: 12%vh;
+  filter: drop-shadow(0 0 10px rosybrown);
+  position: absolute;
+  right: 500px;
+  top: 0px;
+} */
