@@ -7,6 +7,11 @@
   padding: 0;
 } /* /////// */
 /* MENU STYLING */
+@media only screen and (max-width: 600px) {
+  html {
+    font-size: 100%;
+  }
+}
 
 h1 {
   font-size: 38px;
@@ -14,7 +19,7 @@ h1 {
 }
 #firstTitle {
   font-family: "Limelight";
-  font-size: 50px;
+  font-size: 30%;
   text-align: center;
   color: #ece2cd;
   background-image: url(/1-img/art/fondepitt.png);
@@ -58,7 +63,7 @@ button {
   );
 }
 .shine {
-  margin: 1rem;
+  /* margin: 1rem; */
   background: rgb(255, 192, 53);
   background: linear-gradient(
     43deg,
@@ -72,7 +77,8 @@ button {
   );
   color: black;
   padding: 0.75rem 1.25rem;
-  width: 175px;
+  min-width: 30px;
+  max-height: 175px;
   font-size: 0.8rem;
   cursor: pointer;
   border-radius: 5px;
@@ -114,15 +120,39 @@ button {
   background-color: black;
 }
 
-#playNow {
-  text-align: center;
-  margin: auto;
+#playBtn{
+  position:absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.perso {
-  width: 24%vh;
-  height: 24%vh;
-  filter: drop-shadow(0 0 10px rosybrown);
+/*#playNow {
+  padding-bottom: 125vh;
   text-align: center;
   margin: auto;
-}
+}*/
+
+/*.perso {
+  width: 60vh;
+  height: 60vh;
+  filter: drop-shadow(0 0 10px rgb(250, 195, 127));
+  text-align: center;
+  padding-right: 100px;
+  padding-bottom: 16vh;
+  margin: auto;
+  margin-right: 50px;
+}*/
+/*#whiteCard {
+  position: absolute;
+  padding: 25px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: bisque;
+  border-radius: 75%;
+  width: 50%;
+  /* height: 50%; 
+  text-align: center;
+  margin: auto;
+}*/
