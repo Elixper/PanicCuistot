@@ -217,11 +217,40 @@ button {
   filter: drop-shadow(0 0 5px rgba(255, 186, 83, 0.986));
 }
 .presentation {
-  font-size: 30px;
+  font-size: 20px;
   color: rgba(100, 72, 39, 0.733);
+  font-family: "Limelight";
+  text-align:justify;
 }
 #flex {
   display: flex;
   justify-content: space-between;
   margin-left: 1.5rem;
+}
+
+.newWrapper{
+  display:flex;
+}
+#authorIco {
+  height:25vh;
+}
+.par{
+  font-family: "Limelight";
+  text-align: justify;
+}
+@media (max-width: 550px) {
+  .newWrapper {
+    flex-direction: column;
+  }
+  .par { font-size: 1em; }
+  .par span { font-size: 1.2em; }
+  #authorIco {
+    height: 5%;
+    background-color: blue;
+    width: auto;
+  } 
+}
+@media (min-width: 551px) {
+  .par { font-size: 1.25rem; }
+  .par span { font-size: 1.35em; }
 }
