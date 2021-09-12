@@ -33,6 +33,46 @@ h1 {
   background-size: 1400px 300px;
 }
 /* ////// */
+
+/* RESPONSIVE STYLING */
+@media (max-width: 620px) {
+  /* MAIN page styling */
+  .navbar ul {
+    display: flex;
+  }
+  #firstTitle{
+    font-size: 1em;
+  }
+  .instruction {font-size: 1.1em;
+    padding-bottom:60px;
+  }
+  .navbar button{ font-size: 0.6em;
+    height: 50px;
+    width: 90px;
+    padding: 3px;
+    margin: 0.4rem;
+  }
+  /* ABOUT page styling */
+  .newWrapper {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .newWrapper picture {
+    text-align: center;
+  }
+  .par { font-size: 0.8em; }
+  .par span { font-size: 1em; }
+}
+@media (min-width: 621px) {
+  .par { font-size: 1.25rem; }
+  .par span { font-size: 1.35em; }
+  .newWrapper picture {
+    margin-right:10vh;
+    margin-top: 70px;
+  }
+}
+/* ////// */
+
 /* BACKGROUND STYLING */
 #demo {
   background-image: url(/1-img/art/hemsworth.png);
@@ -194,11 +234,20 @@ button {
   border-radius: 100%;
 }
 /* BUTTON STYLING */
+@media (max-width: 620px) {
 .icon {
   /* display: none; */
-  height: 100px;
-  width: 100px;
+  height: 60px;
+  width: 60px;
 }
+}
+@media (min-width: 619px) {
+  .icon {
+    /* display: none; */
+    height: 100px;
+    width: 100px;
+  }
+  }
 .right.icon:hover {
   transform: rotate(45deg);
   transition-duration: 1s;
@@ -237,20 +286,5 @@ button {
 .par{
   font-family: "Limelight";
   text-align: justify;
-}
-@media (max-width: 550px) {
-  .newWrapper {
-    flex-direction: column;
-  }
-  .par { font-size: 1em; }
-  .par span { font-size: 1.2em; }
-  #authorIco {
-    height: 5%;
-    background-color: blue;
-    width: auto;
-  } 
-}
-@media (min-width: 551px) {
-  .par { font-size: 1.25rem; }
-  .par span { font-size: 1.35em; }
+  margin: 2rem;
 }
